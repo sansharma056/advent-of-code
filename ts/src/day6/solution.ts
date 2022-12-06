@@ -4,13 +4,14 @@ import { argv } from "process";
 const path = argv[2];
 
 function findStartOfPacketMarker(packet: string): number {
+	const WINDOW_SIZE = 14;
 	let windowStart = 0;
 	let windowEnd = 0;
 
 	while (windowEnd < packet.length) {
-		if (windowEnd - windowStart + 1 === 4) {
+		if (windowEnd - windowStart + 1 === WINDOW_SIZE) {
 			const set = new Set(packet.slice(windowStart, windowEnd + 1));
-			if (set.size == 4) {
+			if (set.size == WINDOW_SIZE) {
 				return windowEnd + 1;
 			}
 
