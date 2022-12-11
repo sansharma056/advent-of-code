@@ -101,18 +101,6 @@ function getNumberOfVisibleTrees(forest: number[][]): number {
 	const ROW_NUM = forest.length;
 	const COL_NUM = forest[0].length;
 
-	const visibilityCache: VisibilityInfo[][] = [];
-
-	for (let i = 0; i < ROW_NUM; i++) {
-		const row: VisibilityInfo[] = [];
-
-		for (let j = 0; j < COL_NUM; j++) {
-			row.push(null);
-		}
-
-		visibilityCache.push(row);
-	}
-
 	let count = 0;
 
 	for (let i = 0; i < ROW_NUM; i++) {
